@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/partharora100/e-commerce/issues"
   },
-  "homepage": "https://github.com/partharora100/e-commerce#readme"
+  "homepage": "https://github.com/partharora100/e-commerce#readme",
+  "dependencies": {
+    "react-router-dom": "^6.11.2"
+  }
 }
