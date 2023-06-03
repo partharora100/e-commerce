@@ -49,3 +49,10 @@
   font-size: 1.2rem;
   margin: 1rem;
 }
+
+/*  */
+.page-container {
+  max-width: 120rem;
+  border: 1px solid black;
+  margin: 0 auto;
+}
