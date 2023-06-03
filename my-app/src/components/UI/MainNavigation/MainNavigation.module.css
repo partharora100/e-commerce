@@ -1,0 +1,36 @@
+.main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.6rem 2.8rem;
+  /*  */
+  /* background-color: lightgray; */
+  border-bottom: 1px solid var(--dark-gray);
+}
+
+.logo {
+  width: 12rem;
+}
+
+.search {
+}
+
+.navContainer {
+}
+
+.navContainer nav {
+  display: flex;
+  align-items: center;
+  gap: 3.2rem;
+}
+
+.navContainer nav li {
+  list-style: none;
+}
+
+.navContainer nav li a {
+  font-size: 1.8rem;
+  font-weight: 500;
+  text-decoration: none;
+  color: var(--text-black);
+}
