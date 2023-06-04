@@ -1,0 +1,48 @@
+.categoryCard {
+  flex-basis: 30%;
+  border: 1px solid var(--light-gray);
+  padding: 20px 12px;
+  border-radius: 8px;
+}
+.categoryImage {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.categoryImage img {
+  width: 70%;
+  /* border: 1px solid black; */
+}
+
+.categoryButton {
+  background-color: var(--primary-blue);
+  color: white;
+  padding: 16px 24px;
+  border: none;
+  border-radius: 6px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.categoryHeading {
+  font-size: 1.8rem;
+  margin-bottom: 4px;
+  text-transform: capitalize;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.categoryDescription {
+  font-size: 1.6rem;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.categoryNumber {
+  font-size: 1.6rem;
+  margin-bottom: 8px;
+  color: var(--bestseller-red);
+  font-weight: 500;
+  text-align: center;
+}

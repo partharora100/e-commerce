@@ -33,4 +33,5 @@ html {
 .container-140 {
   max-width: 130rem;
   margin: 0 auto;
+  padding: 0 28px;
 }

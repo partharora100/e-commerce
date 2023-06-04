@@ -1,17 +1,19 @@
-import { useState } from "react";
+import CategoryCard from "../../HomeComponents/CatgegoryCard";
 import modules from "./ShopCategory.module.css";
 
-const ShopCategory = ({ products }) => {
-  const [filteredProducts, setFilteredProducts] = useState(products);
-
+const ShopCategory = ({ category }) => {
   // console.log("This is coming from the Shop Category");
   // console.log(filteredProducts);
 
   return (
     <div className={modules.category}>
-      <h2 className={modules.title}>Shop By [CategoryName]</h2>
+      <h2 className={modules.title}>Shop By Catgegories</h2>
 
-      <div className={modules.container}></div>
+      <div className={modules.container}>
+        {category.map((c) => (
+          <CategoryCard {...c} />
+        ))}
+      </div>
     </div>
   );
 };

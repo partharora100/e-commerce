@@ -5,4 +5,17 @@
 .title {
   font-size: 2rem;
   text-align: center;
+  /* justify-content: space-between; */
+}
+
+.container {
+  display: flex;
+  /* align-items: center; */
+
+  flex-wrap: wrap;
+  margin-top: 4rem;
+  /* border: 1px solid black; */
+
+  justify-content: space-between;
+  row-gap: 3.2rem;
 }

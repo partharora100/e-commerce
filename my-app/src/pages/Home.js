@@ -5,19 +5,17 @@ import ShopCategory from "../components/UI/ShopCategory/ShopCategory";
 import ProductContext from "../contexts/product-context";
 
 const HomePage = () => {
-  const ctxCategory = useContext(CategoryContext);
-  const ctxProduct = useContext(ProductContext);
+  const ctx = useContext(CategoryContext);
 
-  if (!ctxCategory.data || !ctxProduct.data) {
+  if (!ctx.data) {
     return <div>Loading...</div>;
   }
 
   return (
     <>
-      <Banner />
-
       <div className="container-140">
-        <ShopCategory products={ctxProduct.data} />
+        <Banner />
+        <ShopCategory category={ctx.data} />
       </div>
     </>
   );
