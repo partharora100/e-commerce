@@ -12,8 +12,59 @@
   gap: 2rem;
   align-items: center;
   flex-direction: column;
+  padding: 1.2rem;
 }
 
 .right {
   border: 1px solid black;
+  padding: 1.2rem;
 }
+
+.right h3 {
+  text-align: center;
+  font-size: 2rem;
+  text-transform: uppercase;
+  color: var(--light-gray);
+  margin-bottom: 2.4rem;
+}
+
+.cartDeatils {
+  /* border: 1px solid black; */
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.cartDetailCard {
+  /* border: 1px solid black; */
+  padding: 1.2rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.cartDetailCard h4 {
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+
+.cartDetailCard p {
+  font-size: 1.4rem;
+}
+
+/* .cartTotal {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid black;
+}
+
+.cartTotal h3 {
+  font-size: 1.6rem;
+  text-transform: none;
+  color: black;
+}
+
+.cartTotal p {
+  font-size: 1.6rem;
+  text-transform: none;
+  color: black;
+} */

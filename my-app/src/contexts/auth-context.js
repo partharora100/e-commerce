@@ -10,7 +10,7 @@ export const AuthContextProvider = ({ children }) => {
 
   // component states
   const initLogin = localStorageToken ? true : false;
-  const [isLogin, setIsLogin] = useState(true); // just for now
+  const [isLogin, setIsLogin] = useState(initLogin); // just for now
   const [token, setToken] = useState(localStorageToken);
   const [currentUser, setCurrentUser] = useState({});
 

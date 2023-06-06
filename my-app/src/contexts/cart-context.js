@@ -12,8 +12,7 @@ const CartContext = createContext({
 
 export const CartContextProvider = ({ children }) => {
   const [cartData, setCartData] = useState([]);
-  const authCtx = useContext(AuthContext);
-  const token = authCtx.token;
+  const { token, isLogin } = useContext(AuthContext);
 
   useEffect(() => {
     fetch("/api/user/cart", {
@@ -27,15 +26,17 @@ export const CartContextProvider = ({ children }) => {
         return response.json();
       })
       .then((data) => {
-        console.log(data.cart);
+        // console.log(data.cart);
         setCartData(data.cart);
       });
   }, [token]);
 
-  // getting the cart here
+  /****** CART HANDLERS ******* */
+  /**
+   * CAN I PUT THIS USE EFFECT FUNCTIONALITY IN getCartHandler
+   */
   const getCartHandler = async () => {};
 
-  // addCartHandler
   const addCartHandler = async (product) => {
     const response = await fetch("/api/user/cart", {
       method: "POST",
@@ -49,7 +50,6 @@ export const CartContextProvider = ({ children }) => {
     setCartData(resData.cart);
   };
 
-  // updateCartHandler
   const updateCartHandler = async (type, productID) => {
     const response = await fetch("/api/user/cart/" + productID, {
       method: "POST",
@@ -68,7 +68,6 @@ export const CartContextProvider = ({ children }) => {
     setCartData(resData.cart);
   };
 
-  // deleteCartHandler
   const deleteCartHandler = async (productID) => {
     const response = await fetch("/api/user/cart/" + productID, {
       method: "DELETE",
@@ -82,11 +81,14 @@ export const CartContextProvider = ({ children }) => {
   };
 
   /**
-   * writing a function to know whether the product is in the cart or not
-   * This will get the product here an check whether the product is in the Cart
+   * This Returns false if the item is not in the cart and recieves the data from PRODUCt CARD COMPONENT
    */
 
   const checkItemInCart = (data) => {
+    if (!isLogin) {
+      return false;
+    }
+
     console.log(data);
     const product = cartData.find((p) => p._id === data._id);
     console.log("Checkking whether in Cart");
@@ -98,6 +100,17 @@ export const CartContextProvider = ({ children }) => {
       return false;
     }
   };
+
+  const cartTotal = cartData
+    ?.map((cartItem) => {
+      return cartItem.qty * cartItem.price;
+    })
+    .reduce((acc, cur) => {
+      return acc + cur;
+    }, 0);
+
+  const cartItem = cartData?.length;
+
   return (
     <CartContext.Provider
       value={{
@@ -106,6 +119,8 @@ export const CartContextProvider = ({ children }) => {
         onUpdate: updateCartHandler,
         onDelete: deleteCartHandler,
         onCheckCart: checkItemInCart,
+        cartTotal: cartTotal,
+        cartNumber: cartItem,
       }}
     >
       {children}

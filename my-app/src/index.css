@@ -42,7 +42,17 @@ html {
   padding: 0 28px;
 }
 
+.container-60 {
+  max-width: 60rem;
+  margin: 0 auto;
+  padding: 0 28px;
+}
+
 .container-80 {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 28px;
+  border: 1px solid black;
 }
 
 .container-40 {

@@ -7,9 +7,11 @@ import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import HomeIcon from "@mui/icons-material/Home";
 import LoginIcon from "@mui/icons-material/Login";
+import CartContext from "../../../contexts/cart-context";
 
 const MainNavigation = () => {
   const { isLogin, logoutHandler, currentUser } = useContext(AuthContext);
+  const { cartNumber } = useContext(CartContext);
 
   console.log(currentUser);
   return (
@@ -37,6 +39,7 @@ const MainNavigation = () => {
           <li>
             <NavLink to="cart">
               <ShoppingCartOutlinedIcon />
+              {cartNumber}
             </NavLink>
           </li>
 
