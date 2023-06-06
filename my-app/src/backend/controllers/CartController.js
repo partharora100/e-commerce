@@ -120,6 +120,7 @@ export const updateCartItemHandler = function (schema, request) {
     const userCart = schema.users.findBy({ _id: userId }).cart;
     const { action } = JSON.parse(request.requestBody);
     if (action.type === "increment") {
+      console.log("From Backend ++");
       userCart.forEach((product) => {
         if (product._id === productId) {
           product.qty += 1;

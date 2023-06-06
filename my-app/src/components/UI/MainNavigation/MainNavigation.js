@@ -1,16 +1,27 @@
-import React from "react";
+import React, { useContext } from "react";
 import modules from "./MainNavigation.module.css";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import AuthContext from "../../../contexts/auth-context";
+
+import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import HomeIcon from "@mui/icons-material/Home";
+import LoginIcon from "@mui/icons-material/Login";
 
 const MainNavigation = () => {
+  const { isLogin, logoutHandler, currentUser } = useContext(AuthContext);
+
+  console.log(currentUser);
   return (
     <div className={modules.main}>
       <div>
-        <img
-          className={modules.logo}
-          alt="logo"
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQX8a7W1iBpeUa9R1nik1qEpNiCoXqrufgYgyPnwSz4&s"
-        />
+        <Link to="">
+          <img
+            className={modules.logo}
+            alt="logo"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQX8a7W1iBpeUa9R1nik1qEpNiCoXqrufgYgyPnwSz4&s"
+          />
+        </Link>
       </div>
 
       <div className={modules.search}></div>
@@ -18,19 +29,27 @@ const MainNavigation = () => {
       <div className={modules.navContainer}>
         <nav>
           <li>
-            <NavLink to="">Home</NavLink>
+            <NavLink to="">
+              <HomeIcon />
+            </NavLink>
           </li>
 
           <li>
-            <NavLink to="">Cart</NavLink>
+            <NavLink to="cart">
+              <ShoppingCartOutlinedIcon />
+            </NavLink>
           </li>
 
           <li>
-            <NavLink to="">Wishlist</NavLink>
+            <NavLink to="wishlist">
+              <FavoriteIcon />
+            </NavLink>
           </li>
 
           <li>
-            <NavLink to="">Account</NavLink>
+            <NavLink to="account?mode=login">
+              {isLogin ? `${currentUser.firstName}` : <LoginIcon />}
+            </NavLink>
           </li>
         </nav>
       </div>

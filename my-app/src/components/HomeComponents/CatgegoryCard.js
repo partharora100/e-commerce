@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const CategoryCard = ({
   categoryName,
   description,
-  id,
+  _id,
   productNumber,
   image,
 }) => {

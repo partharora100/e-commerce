@@ -35,3 +35,19 @@ html {
   margin: 0 auto;
   padding: 0 28px;
 }
+
+.container-100 {
+  max-width: 100rem;
+  margin: 0 auto;
+  padding: 0 28px;
+}
+
+.container-80 {
+}
+
+.container-40 {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 0 28px;
+  border: 1px solid black;
+}

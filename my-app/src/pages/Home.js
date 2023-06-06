@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import CategoryContext from "../contexts/category-cotext";
 import Banner from "../components/UI/Banner/Banner";
 import ShopCategory from "../components/UI/ShopCategory/ShopCategory";
-import ProductContext from "../contexts/product-context";
 
 const HomePage = () => {
   const ctx = useContext(CategoryContext);

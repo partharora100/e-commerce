@@ -34,3 +34,11 @@
   text-decoration: none;
   color: var(--text-black);
 }
+
+/* .login {
+} */
+
+.icon {
+  font-size: large;
+  /* background-color: black; */
+}
