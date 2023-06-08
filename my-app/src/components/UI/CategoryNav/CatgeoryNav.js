@@ -13,12 +13,13 @@ const CategoryNav = () => {
   return (
     <>
       <nav className={modules.categoryNav}>
+        <li>
+          <Link to="/products">ALL PRODUCTS</Link>
+        </li>
         {ctx.data.map((category) => {
           return (
-            <li>
-              <Link to={`category/${category.categoryName}`}>
-                {category.categoryName}
-              </Link>
+            <li className={modules.links}>
+              <Link to={`/products`}>{category.categoryName}</Link>
             </li>
           );
         })}

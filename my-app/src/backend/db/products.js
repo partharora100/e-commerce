@@ -108,10 +108,11 @@ export const products = [
 
   // facemask
   {
-    _id: uuid(),
+    _id: 1,
     title: "Vitamin C Daily Glow Face Mask ",
     bestseller: false,
     quantity: "100 g",
+    subCategory: "face-mask",
     tags: "Removes Tan, Repairs Sun Damage",
     price: "499",
     rating: 4.8,
@@ -121,7 +122,7 @@ export const products = [
       "https://images.mamaearth.in/catalog/product/u/b/ubtan-face-wash_1_1_1.jpg?fit=contain&width=400&height=400",
   },
   {
-    _id: uuid(),
+    _id: 2,
     title: "Charcoal Face Mask ",
     bestseller: false,
     subCategory: "face-mask",
@@ -135,7 +136,7 @@ export const products = [
       "https://images.mamaearth.in/catalog/product/u/b/ubtan-face-wash_1_1_1.jpg?fit=contain&width=400&height=400",
   },
   {
-    _id: uuid(),
+    _id: 3,
     title: "C3 Face Mask ",
     bestseller: true,
     subCategory: "face-mask",
@@ -151,16 +152,16 @@ export const products = [
 
   // face cream
   {
-    _id: uuid(),
+    _id: 4,
     title: "Winter Face Cream ",
     bestseller: true,
-    subCategory: "face-cream",
     quantity: "100 g",
     tags: ["Makes Skin Glow", "Reduces Acne & Pimples"],
     price: "599",
     rating: 4.8,
     reviews: 31,
     categoryName: "face",
+    subCategory: "face-cream",
     image:
       "https://images.mamaearth.in/catalog/product/u/b/ubtan-face-wash_1_1_1.jpg?fit=contain&width=400&height=400",
   },
@@ -169,7 +170,7 @@ export const products = [
 
   // Beauty
   {
-    _id: uuid(),
+    _id: 5,
     title: "Feather Light Red-Velvet Lipstick",
     bestseller: false,
     newLaunch: "true",
@@ -184,7 +185,7 @@ export const products = [
       "https://images.mamaearth.in/catalog/product/u/b/ubtan-face-wash_1_1_1.jpg?fit=contain&width=400&height=400",
   },
   {
-    _id: uuid(),
+    _id: 6,
     title: "Feather Light Pink Lipstick",
     bestseller: true,
     newLaunch: false,
@@ -199,7 +200,7 @@ export const products = [
       "https://images.mamaearth.in/catalog/product/u/b/ubtan-face-wash_1_1_1.jpg?fit=contain&width=400&height=400",
   },
   {
-    _id: uuid(),
+    _id: 7,
     title: "Feather Light Nude Brown Lipstick",
     bestseller: false,
     newLaunch: "true",
@@ -215,7 +216,7 @@ export const products = [
   },
   // oil
   {
-    _id: uuid(),
+    _id: 8,
     title: "Henna Hair Oil with Henna",
     bestseller: false,
     newLaunch: "true",
@@ -230,7 +231,7 @@ export const products = [
       "https://images.mamaearth.in/catalog/product/h/e/henna-oil-2.jpg?fit=contain&width=400&height=400",
   },
   {
-    _id: uuid(),
+    _id: 9,
     title: "Onion Hair Oil",
     bestseller: false,
     newLaunch: "true",
@@ -245,7 +246,7 @@ export const products = [
       "https://images.mamaearth.in/catalog/product/_/o/_onion-oil-150ml_.jpg?fit=contain&width=400&height=400",
   },
   {
-    _id: uuid(),
+    _id: 10,
     title: "Hair Oil Booster- Almond",
     bestseller: false,
     newLaunch: "true",
@@ -260,7 +261,7 @@ export const products = [
       "https://images.mamaearth.in/catalog/product/a/l/almond-1_1.jpg?fit=contain&width=400&height=400",
   },
   {
-    _id: uuid(),
+    _id: 11,
     title: "Hair Oil Booster- Almond",
     bestseller: false,
     newLaunch: "true",
@@ -277,7 +278,7 @@ export const products = [
 
   // Make-Up
   {
-    _id: uuid(),
+    _id: 12,
     title: "Charcoal Black Long Stay Kajl Pencil",
     bestseller: true,
     newLaunch: false,
@@ -292,7 +293,7 @@ export const products = [
       "https://images.mamaearth.in/catalog/product/k/o/kohl_listing_image_white_bg.jpg?fit=contain&width=400&height=400",
   },
   {
-    _id: uuid(),
+    _id: 13,
     title: "Soothing Waterproof Eyelines with Almond",
     bestseller: true,
     newLaunch: false,
@@ -307,7 +308,7 @@ export const products = [
       "https://images.mamaearth.in/catalog/product/p/r/product_swatch_2.jpg?fit=contain&width=400&height=400",
   },
   {
-    _id: uuid(),
+    _id: 14,
     title: "Soothing Waterproof Eyelines",
     bestseller: true,
     newLaunch: false,
@@ -322,7 +323,7 @@ export const products = [
       "https://images.mamaearth.in/catalog/product/p/r/product_swatch_2.jpg?fit=contain&width=400&height=400",
   },
   {
-    _id: uuid(),
+    _id: 15,
     title: "Charcoal Black Long Stay Kajal",
     bestseller: true,
     newLaunch: false,
@@ -332,39 +333,153 @@ export const products = [
     rating: 4.4,
     reviews: 63,
     categoryName: "makeup",
-    subCategory: "kajal",
     image:
       "https://images.mamaearth.in/catalog/product/k/a/kajal_pack_of_2.jpg?fit=contain&width=400&height=400",
   },
   //  complete makeup
 
+  // Baby
+  {
+    _id: 16,
+    title: "Charcoal Black Long Stay Kajal",
+    bestseller: true,
+    newLaunch: false,
+    quantity: "0.35 g",
+    tags: ["Waterproof Formula", "10 Second Drying Time"],
+    price: "580",
+    rating: 4.4,
+    reviews: 63,
+    categoryName: "baby",
+    image:
+      "https://images.mamaearth.in/catalog/product/k/a/kajal_pack_of_2.jpg?fit=contain&width=400&height=400",
+  },
+  {
+    _id: 17,
+    title: "Charcoal Black Long Stay Kajal",
+    bestseller: true,
+    newLaunch: false,
+    quantity: "0.35 g",
+    tags: ["Waterproof Formula", "10 Second Drying Time"],
+    price: "580",
+    rating: 4.4,
+    reviews: 63,
+    categoryName: "baby",
+    image:
+      "https://images.mamaearth.in/catalog/product/k/a/kajal_pack_of_2.jpg?fit=contain&width=400&height=400",
+  },
+  {
+    _id: 18,
+    title: "Charcoal Black Long Stay Kajal",
+    bestseller: true,
+    newLaunch: false,
+    quantity: "0.35 g",
+    tags: ["Waterproof Formula", "10 Second Drying Time"],
+    price: "580",
+    rating: 4.4,
+    reviews: 63,
+    categoryName: "baby",
+    image:
+      "https://images.mamaearth.in/catalog/product/k/a/kajal_pack_of_2.jpg?fit=contain&width=400&height=400",
+  },
+  {
+    _id: 19,
+    title: "Charcoal Black Long Stay Kajal",
+    bestseller: true,
+    newLaunch: false,
+    quantity: "0.35 g",
+    tags: ["Waterproof Formula", "10 Second Drying Time"],
+    price: "580",
+    rating: 4.4,
+    reviews: 63,
+    categoryName: "baby",
+    image:
+      "https://images.mamaearth.in/catalog/product/k/a/kajal_pack_of_2.jpg?fit=contain&width=400&height=400",
+  },
+
+  // plant-goodness
+  {
+    _id: 20,
+    title: "Charcoal Black Long Stay Kajal",
+    bestseller: true,
+    newLaunch: false,
+    quantity: "0.35 g",
+    tags: ["Waterproof Formula", "10 Second Drying Time"],
+    price: "580",
+    rating: 4.4,
+    reviews: 63,
+    categoryName: "plant-goodness",
+    image:
+      "https://images.mamaearth.in/catalog/product/k/a/kajal_pack_of_2.jpg?fit=contain&width=400&height=400",
+  },
+  {
+    _id: 21,
+    title: "Charcoal Black Long Stay Kajal",
+    bestseller: true,
+    newLaunch: false,
+    quantity: "0.35 g",
+    tags: ["Waterproof Formula", "10 Second Drying Time"],
+    price: "580",
+    rating: 4.4,
+    reviews: 63,
+    categoryName: "plant-goodness",
+    image:
+      "https://images.mamaearth.in/catalog/product/k/a/kajal_pack_of_2.jpg?fit=contain&width=400&height=400",
+  },
+  {
+    _id: 22,
+    title: "Charcoal Black Long Stay Kajal",
+    bestseller: true,
+    newLaunch: false,
+    quantity: "0.35 g",
+    tags: ["Waterproof Formula", "10 Second Drying Time"],
+    price: "580",
+    rating: 4.4,
+    reviews: 63,
+    categoryName: "plant-goodness",
+    image:
+      "https://images.mamaearth.in/catalog/product/k/a/kajal_pack_of_2.jpg?fit=contain&width=400&height=400",
+  },
+  {
+    _id: 23,
+    title: "Charcoal Black Long Stay Kajal",
+    bestseller: true,
+    newLaunch: false,
+    quantity: "0.35 g",
+    tags: ["Waterproof Formula", "10 Second Drying Time"],
+    price: "580",
+    rating: 4.4,
+    reviews: 63,
+    categoryName: "plant-goodness",
+    image:
+      "https://images.mamaearth.in/catalog/product/k/a/kajal_pack_of_2.jpg?fit=contain&width=400&height=400",
+  },
   //
-  {
-    _id: uuid(),
-    title: "Ubtan Face Wash",
-    bestseller: false,
-    quantity: "300ml",
-    tags: "Removes Tan, Repairs Sun Damage",
-    price: "259",
-    rating: 4.8,
-    reviews: 1531,
-    categoryName: "face",
-    image:
-      "https://images.mamaearth.in/catalog/product/u/b/ubtan-face-wash_1_1_1.jpg?fit=contain&width=400&height=400",
-  },
-  {
-    _id: uuid(),
-    title: "Ubtan Face Wash",
-    bestseller: false,
-    quantity: "300ml",
-    tags: "Removes Tan, Repairs Sun Damage",
-    price: "259",
-    rating: 4.8,
-    reviews: 1531,
-    categoryName: "face",
-    image:
-      "https://images.mamaearth.in/catalog/product/u/b/ubtan-face-wash_1_1_1.jpg?fit=contain&width=400&height=400",
-  },
+  // {
+  //   _id: uuid(),
+  //   title: "Ubtan Face Wash",
+  //   bestseller: false,
+  //   quantity: "300ml",
+  //   tags: "Removes Tan, Repairs Sun Damage",
+  //   price: "259",
+  //   rating: 4.8,
+  //   reviews: 1531,
+  //   categoryName: "face",
+  //   image:
+  //     "https://images.mamaearth.in/catalog/product/u/b/ubtan-face-wash_1_1_1.jpg?fit=contain&width=400&height=400",
+  // },
+  // {
+  //   _id: uuid(),
+  //   title: "Ubtan Face Wash",
+  //   bestseller: false,
+  //   quantity: "300ml",
+  //   tags: "Removes Tan, Repairs Sun Damage",
+  //   price: "259",
+  //   rating: 4.8,
+  //   reviews: 1531,
+  //   categoryName: "face",
+  //   image:
+  //     "https://images.mamaearth.in/catalog/product/u/b/ubtan-face-wash_1_1_1.jpg?fit=contain&width=400&height=400",
+  // },
   // {
   //   _id: uuid(),
   //   title: "Multani Mitti Face Wash",
@@ -470,56 +585,56 @@ export const products = [
   //     "https://images.mamaearth.in/catalog/product/b/o/body-wash_probs_ui8gwmtjnj2sahbz.jpg?fit=contain&width=400&height=400",
   // },
   // baby-care
-  {
-    _id: uuid(),
-    title: "Baby Body Wash",
-    bestseller: true,
-    quantity: "400ml",
-    tags: ["Natural Cleansers"],
-    price: "398",
-    rating: 4.3,
-    reviews: 78,
-    categoryName: "plant-goodness",
-    image:
-      "https://images.mamaearth.in/catalog/product/b/o/body-wash_probs_ui8gwmtjnj2sahbz.jpg?fit=contain&width=400&height=400",
-  },
-  {
-    _id: uuid(),
-    title: "Baby Body Wash",
-    bestseller: true,
-    quantity: "400ml",
-    tags: ["Natural Cleansers"],
-    price: "398",
-    rating: 4.3,
-    reviews: 78,
-    categoryName: "plant-goodness",
-    image:
-      "https://images.mamaearth.in/catalog/product/b/o/body-wash_probs_ui8gwmtjnj2sahbz.jpg?fit=contain&width=400&height=400",
-  },
-  {
-    _id: uuid(),
-    title: "Baby Body Wash",
-    bestseller: true,
-    quantity: "400ml",
-    tags: ["Natural Cleansers"],
-    price: "398",
-    rating: 4.3,
-    reviews: 78,
-    categoryName: "plant-goodness",
-    image:
-      "https://images.mamaearth.in/catalog/product/b/o/body-wash_probs_ui8gwmtjnj2sahbz.jpg?fit=contain&width=400&height=400",
-  },
-  {
-    _id: uuid(),
-    title: "Baby Body Wash",
-    bestseller: true,
-    quantity: "400ml",
-    tags: ["Natural Cleansers"],
-    price: "398",
-    rating: 4.3,
-    reviews: 78,
-    categoryName: "plant-goodness",
-    image:
-      "https://images.mamaearth.in/catalog/product/b/o/body-wash_probs_ui8gwmtjnj2sahbz.jpg?fit=contain&width=400&height=400",
-  },
+  // {
+  //   _id: uuid(),
+  //   title: "Baby Body Wash",
+  //   bestseller: true,
+  //   quantity: "400ml",
+  //   tags: ["Natural Cleansers"],
+  //   price: "398",
+  //   rating: 4.3,
+  //   reviews: 78,
+  //   categoryName: "plant-goodness",
+  //   image:
+  //     "https://images.mamaearth.in/catalog/product/b/o/body-wash_probs_ui8gwmtjnj2sahbz.jpg?fit=contain&width=400&height=400",
+  // },
+  // {
+  //   _id: uuid(),
+  //   title: "Baby Body Wash",
+  //   bestseller: true,
+  //   quantity: "400ml",
+  //   tags: ["Natural Cleansers"],
+  //   price: "398",
+  //   rating: 4.3,
+  //   reviews: 78,
+  //   categoryName: "plant-goodness",
+  //   image:
+  //     "https://images.mamaearth.in/catalog/product/b/o/body-wash_probs_ui8gwmtjnj2sahbz.jpg?fit=contain&width=400&height=400",
+  // },
+  // {
+  //   _id: uuid(),
+  //   title: "Baby Body Wash",
+  //   bestseller: true,
+  //   quantity: "400ml",
+  //   tags: ["Natural Cleansers"],
+  //   price: "398",
+  //   rating: 4.3,
+  //   reviews: 78,
+  //   categoryName: "plant-goodness",
+  //   image:
+  //     "https://images.mamaearth.in/catalog/product/b/o/body-wash_probs_ui8gwmtjnj2sahbz.jpg?fit=contain&width=400&height=400",
+  // },
+  // {
+  //   _id: uuid(),
+  //   title: "Baby Body Wash",
+  //   bestseller: true,
+  //   quantity: "400ml",
+  //   tags: ["Natural Cleansers"],
+  //   price: "398",
+  //   rating: 4.3,
+  //   reviews: 78,
+  //   categoryName: "plant-goodness",
+  //   image:
+  //     "https://images.mamaearth.in/catalog/product/b/o/body-wash_probs_ui8gwmtjnj2sahbz.jpg?fit=contain&width=400&height=400",
+  // },
 ];

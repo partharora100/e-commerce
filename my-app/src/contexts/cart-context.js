@@ -89,10 +89,10 @@ export const CartContextProvider = ({ children }) => {
       return false;
     }
 
-    console.log(data);
+    // console.log(data);
     const product = cartData.find((p) => p._id === data._id);
-    console.log("Checkking whether in Cart");
-    console.log(product);
+    // console.log("Checkking whether in Cart");
+    // console.log(product);
 
     if (product?._id ? true : false) {
       return product._id;

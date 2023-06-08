@@ -1,7 +1,8 @@
 .categoryCard {
-  flex-basis: 30%;
-  border: 1px solid var(--light-gray);
-  padding: 20px 12px;
+  flex-basis: 28%;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 20px 20px;
   border-radius: 8px;
 }
 .categoryImage {
@@ -18,11 +19,14 @@
 .categoryButton {
   background-color: var(--primary-blue);
   color: white;
-  padding: 16px 24px;
+  padding: 12px 24px;
   border: none;
   border-radius: 6px;
   width: 100%;
   cursor: pointer;
+}
+
+.categoryButton:hover {
 }
 
 .categoryHeading {
@@ -34,7 +38,9 @@
 }
 
 .categoryDescription {
+  color: var(--dark-gray);
   font-size: 1.6rem;
+  font-weight: 500;
   line-height: 1.4;
   text-align: center;
 }

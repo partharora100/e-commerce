@@ -7,7 +7,7 @@ import { v4 as uuid } from "uuid";
 
 export const categories = [
   {
-    _id: uuid(),
+    _id: 1,
     categoryName: "hair",
     description:
       "Explore 100% toxin-free and safe hair care products by Mamaearth. Whether it’s hair fall, dandruff, frizzy hair, or anything else – Mamaearth has a product for you. Get closer to the goodness of nature with our range of hair care products made with natural ingredients.",

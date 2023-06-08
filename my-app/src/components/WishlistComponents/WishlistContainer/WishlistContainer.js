@@ -5,13 +5,12 @@ import WishlistCard from "../WishlistCard/WishlistCard";
 
 const WishlistContainer = () => {
   const { data } = useContext(WishlistContext);
-  console.log(data);
   return (
-    <>
+    <div className={modules.container}>
       {data.map((item) => {
         return <WishlistCard data={item} />;
       })}
-    </>
+    </div>
   );
 };
 

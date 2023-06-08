@@ -2,10 +2,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.6rem 2.8rem;
-  /*  */
-  /* background-color: lightgray; */
-  border-bottom: 1px solid var(--dark-gray);
+  padding: 0.6rem 2.8rem;
+  padding-bottom: 0;
 }
 
 .logo {
@@ -21,7 +19,7 @@
 .navContainer nav {
   display: flex;
   align-items: center;
-  gap: 3.2rem;
+  gap: 4.8rem;
 }
 
 .navContainer nav li {
@@ -33,12 +31,4 @@
   font-weight: 500;
   text-decoration: none;
   color: var(--text-black);
-}
-
-/* .login {
-} */
-
-.icon {
-  font-size: large;
-  /* background-color: black; */
 }

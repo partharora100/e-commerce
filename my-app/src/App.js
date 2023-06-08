@@ -4,8 +4,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import HomePage from "./pages/Home";
 import RootLayout from "./pages/RootLayout";
 import CartPage from "./pages/Cart";
-import CategoryPage from "./pages/Category";
-import ProductPage from "./pages/Product";
+import ProductPage from "./pages/Products";
 import AccountPage from "./pages/Account";
 import WishlistPage from "./pages/Wishlist";
 
@@ -27,10 +26,11 @@ const router = createBrowserRouter([
         element: <WishlistPage />,
       },
       { path: "/account", element: <AccountPage /> },
-      {
-        path: "/category/:categoryName",
-        element: <CategoryPage />,
-      },
+      { path: "/products", element: <ProductPage /> },
+      // {
+      //   path: "/category/:categoryName",
+      //   element: <CategoryPage />,
+      // },
       {
         path: "/product/:productID",
         element: <ProductPage />,

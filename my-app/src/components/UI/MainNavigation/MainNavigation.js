@@ -3,17 +3,19 @@ import modules from "./MainNavigation.module.css";
 import { Link, NavLink } from "react-router-dom";
 import AuthContext from "../../../contexts/auth-context";
 
+import Search from "./Search/Search";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import HomeIcon from "@mui/icons-material/Home";
-import LoginIcon from "@mui/icons-material/Login";
+
 import CartContext from "../../../contexts/cart-context";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
 const MainNavigation = () => {
   const { isLogin, logoutHandler, currentUser } = useContext(AuthContext);
+
   const { cartNumber } = useContext(CartContext);
 
-  console.log(currentUser);
   return (
     <div className={modules.main}>
       <div>
@@ -26,32 +28,38 @@ const MainNavigation = () => {
         </Link>
       </div>
 
-      <div className={modules.search}></div>
+      <div className={modules.search}>
+        <Search />
+      </div>
 
       <div className={modules.navContainer}>
         <nav>
           <li>
             <NavLink to="">
-              <HomeIcon />
+              <HomeIcon sx={{ fontSize: 24 }} />
             </NavLink>
           </li>
 
           <li>
             <NavLink to="cart">
-              <ShoppingCartOutlinedIcon />
+              <ShoppingCartOutlinedIcon sx={{ fontSize: 24 }} />
               {cartNumber}
             </NavLink>
           </li>
 
           <li>
             <NavLink to="wishlist">
-              <FavoriteIcon />
+              <FavoriteIcon sx={{ fontSize: 24 }} />
             </NavLink>
           </li>
 
           <li>
             <NavLink to="account?mode=login">
-              {isLogin ? `${currentUser.firstName}` : <LoginIcon />}
+              {isLogin ? (
+                `${currentUser.firstName}`
+              ) : (
+                <AccountCircleIcon sx={{ fontSize: 24 }} />
+              )}
             </NavLink>
           </li>
         </nav>

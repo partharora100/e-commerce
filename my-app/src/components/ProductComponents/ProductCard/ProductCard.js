@@ -5,8 +5,11 @@ import CartContext from "../../../contexts/cart-context";
 import AuthContext from "../../../contexts/auth-context";
 import WishlistContext from "../../../contexts/wishlist-context";
 
+// importing material icons
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
+import { grey, red } from "@mui/material/colors";
+
 const ProductCard = ({ product }) => {
   const {
     _id,
@@ -20,7 +23,6 @@ const ProductCard = ({ product }) => {
     categoryName,
     image,
   } = product;
-  console.log(_id);
 
   const navigate = useNavigate();
   const { onAdd, onCheckCart } = useContext(CartContext);
@@ -33,7 +35,6 @@ const ProductCard = ({ product }) => {
 
   const itemInCart = onCheckCart(product);
   const itemInWishlist = onCheckWishlist(product);
-  // eithrt false or we get the id of the product
 
   const cartAddHandler = () => {
     // need to set a check using itemInCart
@@ -80,14 +81,24 @@ const ProductCard = ({ product }) => {
 
       <div className={modules.wishlist}>
         {!itemInWishlist && (
-          <button onClick={wishlistAddHandler}>
-            <FavoriteBorderIcon />
+          <button>
+            <FavoriteBorderIcon
+              onClick={wishlistAddHandler}
+              sx={{ color: grey[600] }}
+              fontSize="large"
+            />
           </button>
         )}
 
         {isLogin && itemInWishlist && (
-          <button onClick={wishlistDeleteHandler}>
-            <FavoriteIcon />
+          <button>
+            <FavoriteIcon
+              onClick={() => {
+                wishlistDeleteHandler(_id);
+              }}
+              sx={{ color: red[600] }}
+              fontSize="large"
+            />
           </button>
         )}
       </div>

@@ -29,7 +29,7 @@ export const WishlistContextProvider = ({ children }) => {
   }, [token]);
 
   const addWishlistHandler = async (product) => {
-    const response = await fetch("/api/user/cart", {
+    const response = await fetch("/api/user/wishlist", {
       method: "POST",
       headers: {
         authorization: token,
@@ -38,7 +38,7 @@ export const WishlistContextProvider = ({ children }) => {
     });
 
     const resData = await response.json();
-    setWishlistData(resData.cart);
+    setWishlistData(resData.wishlist);
   };
 
   const deleteWishlistHandler = async (productID) => {
@@ -50,7 +50,7 @@ export const WishlistContextProvider = ({ children }) => {
     });
 
     const resData = await response.json();
-    setWishlistData(resData.cart);
+    setWishlistData(resData.wishlist);
   };
 
   const checkItemInWish = (data) => {

@@ -5,6 +5,7 @@
 
 :root {
   --primary-blue: #339af0;
+  --dark-blue: #1c7ed6;
   --bestseller-red: #d6336c;
   --text-black: #212529;
   --light-gray: #adb5bd;
@@ -30,16 +31,26 @@ html {
   font-size: 62.5%;
 }
 
+/** These are the containers */
+
 .container-140 {
-  max-width: 130rem;
+  max-width: 140rem;
   margin: 0 auto;
   padding: 0 28px;
+}
+
+.container-120 {
+  max-width: 120rem;
+  margin: 0 auto;
+  padding: 0 28px;
+  border: 1px solid black;
 }
 
 .container-100 {
   max-width: 100rem;
   margin: 0 auto;
   padding: 0 28px;
+  border: 1px solid black;
 }
 
 .container-60 {
@@ -60,4 +71,23 @@ html {
   margin: 0 auto;
   padding: 0 28px;
   border: 1px solid black;
+}
+
+/* Page Heading */
+.page-heading {
+  font-size: 2.4rem;
+  color: var(--dark-gray);
+  text-align: center;
+  margin-top: 3.2rem;
+  margin-bottom: 2rem;
+}
+
+.category-heading {
+}
+
+.container-change {
+  max-width: 140rem;
+  border: 1px solid black;
+
+  /* border: 1px solid black; */
 }

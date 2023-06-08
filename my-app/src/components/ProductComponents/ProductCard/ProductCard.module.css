@@ -1,8 +1,12 @@
 .productCard {
-  border: 1px solid var(--light-gray);
-  border-radius: 12px;
+  /* border: 1px solid var(--light-gray); */
+  /* box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px; */
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px,
+    rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+  border-radius: 4px;
   flex-basis: 20%;
   padding: 2.4rem 1.6rem;
+  position: relative;
 }
 
 .productCard p {
@@ -42,19 +46,22 @@
   gap: 1.6rem;
 }
 
+/* Primary Button */
 .primaryButton {
   background-color: var(--primary-blue);
   color: white;
+  font-weight: 500;
   border: none;
-  border-radius: 6px;
-  font-size: 1.8rem;
-  padding: 16px 24px;
+  border-radius: 4px;
+  font-size: 1.6rem;
+  padding: 12px;
+  /* side padding will not make a difference */
   width: 100%;
   cursor: pointer;
 }
 
 .primaryButton:hover {
-  background-color: #1c7ed6;
+  background-color: var(--dark-blue);
 }
 
 .secondaryButton {
@@ -62,8 +69,9 @@
   border: 2px solid white;
   color: var(--primary-blue);
   border-radius: 6px;
-  font-size: 1.8rem;
-  padding: 16px 24px;
+  font-weight: 500;
+  font-size: 1.6rem;
+  padding: 12px;
   width: 100%;
   cursor: pointer;
 }
@@ -71,4 +79,15 @@
 .secondaryButton:hover {
   border: 2px solid var(--primary-blue);
   background-color: #e7f5ff;
+}
+
+.wishlist {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+
+.wishlist button {
+  background-color: transparent;
+  border: none;
 }

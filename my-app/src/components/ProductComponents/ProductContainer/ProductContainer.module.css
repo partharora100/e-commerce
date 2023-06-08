@@ -1,0 +1,26 @@
+.container {
+  /* border: 1px solid black; */
+  display: grid;
+  grid-template-columns: 25rem 1fr;
+  column-gap: 2rem;
+  padding: 2rem;
+}
+
+.filterBox {
+  /* border: 1px solid black; */
+  /* height: 100vh; */
+  /* overflow: scroll; */
+}
+
+.productBox {
+  padding: 2rem 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  row-gap: 32px;
+
+  /* height: 100vh; */
+  /* overflow: scroll; */
+  /* border: 1px solid black; */
+}
