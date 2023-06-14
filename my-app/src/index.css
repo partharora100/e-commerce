@@ -4,12 +4,23 @@
 }
 
 :root {
+  /* PRIMARY BLUE */
   --primary-blue: #339af0;
+  --light-blue: #d0ebff;
   --dark-blue: #1c7ed6;
-  --bestseller-red: #d6336c;
+
+  /* SECONDARY GREEN */
+
+  /* GRAYS */
   --text-black: #212529;
   --light-gray: #adb5bd;
-  --dark-gray: #868e96;
+  --dark-gray: #495057;
+  --text-gray: #868e96;
+
+  /* REDS */
+  --bestseller-red: #d6336c;
+  --error-red: #c92a2a;
+  --error-light-red: #ffe3e3;
 }
 
 body {
@@ -17,6 +28,7 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
+  /* font-family: "Rubik", sans-serif; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   box-sizing: content-box;
@@ -49,8 +61,8 @@ html {
 .container-100 {
   max-width: 100rem;
   margin: 0 auto;
-  padding: 0 28px;
-  border: 1px solid black;
+  padding: 2rem 2.8rem;
+  /* border: 1px solid black; */
 }
 
 .container-60 {

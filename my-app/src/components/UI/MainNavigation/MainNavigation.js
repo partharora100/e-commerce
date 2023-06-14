@@ -1,18 +1,22 @@
 import React, { useContext } from "react";
 import modules from "./MainNavigation.module.css";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import AuthContext from "../../../contexts/auth-context";
-
 import Search from "./Search/Search";
+import CartContext from "../../../contexts/cart-context";
+
+
+// importing material icons
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import HomeIcon from "@mui/icons-material/Home";
-
-import CartContext from "../../../contexts/cart-context";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
 const MainNavigation = () => {
-  const { isLogin, logoutHandler, currentUser } = useContext(AuthContext);
+  const { pathname } = useLocation();
+  const showSearch = pathname === "/products";
+
+  const { isLogin, currentUser } = useContext(AuthContext);
 
   const { cartNumber } = useContext(CartContext);
 
@@ -28,9 +32,11 @@ const MainNavigation = () => {
         </Link>
       </div>
 
-      <div className={modules.search}>
-        <Search />
-      </div>
+      {showSearch && (
+        <div className={modules.search}>
+          <Search />
+        </div>
+      )}
 
       <div className={modules.navContainer}>
         <nav>
@@ -56,7 +62,7 @@ const MainNavigation = () => {
           <li>
             <NavLink to="account?mode=login">
               {isLogin ? (
-                `${currentUser.firstName}`
+                `${currentUser?.firstName}`
               ) : (
                 <AccountCircleIcon sx={{ fontSize: 24 }} />
               )}

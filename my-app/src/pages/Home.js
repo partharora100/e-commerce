@@ -1,7 +1,8 @@
 import React, { useContext } from "react";
 import CategoryContext from "../contexts/category-cotext";
-import Banner from "../components/UI/Banner/Banner";
+// import Banner from "../components/UI/Banner/Banner";
 import ShopCategory from "../components/UI/ShopCategory/ShopCategory";
+import BannerSlider from "../components/UI/Banner/BannerSlider";
 
 const HomePage = () => {
   const ctx = useContext(CategoryContext);
@@ -13,7 +14,7 @@ const HomePage = () => {
   return (
     <>
       <div className="container-140">
-        <Banner />
+        <BannerSlider />
         <ShopCategory category={ctx.data} />
       </div>
     </>

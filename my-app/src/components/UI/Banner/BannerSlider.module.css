@@ -1,0 +1,33 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.container button {
+  border: none;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.5) 0px 5px 15px;
+  font-size: 1.5rem;
+  padding: 1.2rem;
+  border-radius: 100px;
+  position: absolute;
+  cursor: pointer;
+}
+
+.container img {
+  max-width: 100%;
+  height: auto;
+  /* margin: 0 1rem; */
+}
+
+.prev {
+  top: 40%;
+  left: 4%;
+}
+
+.next {
+  top: 40%;
+  right: 4%;
+}

@@ -1,7 +1,9 @@
 export const initState = {
   products: [],
-  filteredProducts: [],
-  activeCategoryArr: [],
+  sortInput: "",
+  ratingInput: 1,
+  categoryInput: [],
+  searchInput: "",
 };
 
 export const ProductReducer = (state, action) => {
@@ -9,38 +11,42 @@ export const ProductReducer = (state, action) => {
     return {
       ...state,
       products: action.payload,
-      filteredProducts: action.payload,
     };
   }
 
   if (action.type === "CLEAR_FILTERS") {
-    return { ...state, filteredProducts: state.products };
-  }
-
-  if (action.type === "FILTER_PRODUCTS") {
-    console.log(action.string);
-    console.log(state.activeCategoryArr);
-
     return {
       ...state,
-      filteredProducts: action.payload,
-      activeCategoryArr: state.activeCategoryArr.includes(action.string)
-        ? [
-            ...state.activeCategoryArr.filter(
-              (category) => category !== action.string
-            ),
-          ]
-        : [...state.activeCategoryArr, action.string],
+      sortInput: "",
+      ratingInput: 1,
+      categoryInput: [],
+      searchInput: "",
     };
   }
 
-  if (action.type === "") {
-    return { ...state };
+  if (action.type === "FILTER_PRODUCTS") {
+    return {
+      ...state,
+      categoryInput: state.categoryInput.includes(action.payload)
+        ? [
+            ...state.categoryInput.filter(
+              (category) => category !== action.payload
+            ),
+          ]
+        : [...state.categoryInput, action.payload],
+    };
   }
 
-  if (action.type === "") {
+  // need to complete these 2 actions
+  if (action.type === "SORT") {
+    return { ...state, sortInput: action.payload };
+  }
+
+  if (action.type === "FILTER_RATING") {
     return { ...state };
   }
 
   return { ...state };
 };
+
+// I need to create a function that filters the products array based on the

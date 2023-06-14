@@ -1,4 +1,5 @@
 import { createContext, useContext, useState } from "react";
+import { toast } from "react-toastify";
 
 const AuthContext = createContext({
   token: "",
@@ -14,7 +15,6 @@ export const AuthContextProvider = ({ children }) => {
   const [token, setToken] = useState(localStorageToken);
   const [currentUser, setCurrentUser] = useState({});
 
-  // login handler but we need to do error handling
   const loginHandler = (authData) => {
     fetch("/api/auth/login", {
       method: "POST",
@@ -29,6 +29,7 @@ export const AuthContextProvider = ({ children }) => {
         setCurrentUser(foundUser);
         setToken(encodedToken);
         setIsLogin(true);
+        toast.success("LOGIN DONE");
       });
   };
 
@@ -41,6 +42,7 @@ export const AuthContextProvider = ({ children }) => {
     setCurrentUser(null);
     setIsLogin(false);
     localStorage.removeItem("token");
+    toast.error("LOGOUT");
     // notification
     // navigate
   };

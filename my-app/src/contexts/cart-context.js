@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 // import { getCart } from "../services/cartService";
 import AuthContext from "./auth-context";
+import { toast } from "react-toastify";
 
 const CartContext = createContext({
   data: [],
@@ -22,11 +23,9 @@ export const CartContextProvider = ({ children }) => {
       },
     })
       .then((response) => {
-        // console.log(response);
         return response.json();
       })
       .then((data) => {
-        // console.log(data.cart);
         setCartData(data.cart);
       });
   }, [token]);
@@ -46,11 +45,16 @@ export const CartContextProvider = ({ children }) => {
       body: JSON.stringify({ product }),
     });
 
-    const resData = await response.json();
-    setCartData(resData.cart);
+    if (response.status === 201) {
+      const resData = await response.json();
+
+      toast.success("CART UPDATEDD"); // 2 notications
+      setCartData(resData.cart);
+    }
   };
 
   const updateCartHandler = async (type, productID) => {
+    console.log("This is hittinh");
     const response = await fetch("/api/user/cart/" + productID, {
       method: "POST",
       headers: {
@@ -62,9 +66,7 @@ export const CartContextProvider = ({ children }) => {
         },
       }),
     });
-
     const resData = await response.json();
-
     setCartData(resData.cart);
   };
 
@@ -77,6 +79,7 @@ export const CartContextProvider = ({ children }) => {
     });
 
     const resData = await response.json();
+    toast.error("ITEM DELETED FROM CART");
     setCartData(resData.cart);
   };
 

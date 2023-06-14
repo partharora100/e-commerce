@@ -3,8 +3,6 @@ import ProductCard from "../ProductCard/ProductCard";
 import ProductFilter from "../ProductFilter/ProductFilter";
 
 const ProductContainer = ({ data }) => {
-  console.log(data);
-
   return (
     <main className={modules.container}>
       <div className={modules.filterBox}>

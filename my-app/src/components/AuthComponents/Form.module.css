@@ -1,0 +1,82 @@
+.formContainer {
+  padding: 2.4rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.input {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.input label {
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: var(--dark-gray);
+}
+
+.input input {
+  font-size: 1.6rem;
+  padding: 1.6rem 2rem;
+  border: 1px solid var(--light-gray);
+  border-radius: 4px;
+  background-color: white;
+}
+
+.inputValid input {
+}
+
+.inputInvalid input {
+  border: 1px solid red;
+}
+
+.input input:active {
+  border: 1px solid #444;
+}
+
+.actions {
+}
+
+.login {
+  padding: 1.2rem;
+  width: 100%;
+  background-color: var(--primary-blue);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.6rem;
+  font-weight: 00;
+  letter-spacing: 0.2px;
+  cursor: pointer;
+}
+
+.guest {
+  padding: 1.2rem;
+  width: 100%;
+  background-color: white;
+  border: 1px solid var(--light-gray);
+  /* border: none; */
+  border: 1px solid var(--primary-blue);
+  color: var(--primary-blue);
+  border-radius: 6px;
+  font-size: 1.6rem;
+  font-weight: 500;
+  letter-spacing: 0.4px;
+  cursor: pointer;
+}
+
+.guest:hover {
+}
+
+.login:hover {
+}
+
+.login:disabled {
+  background-color: var(--light-gray);
+}

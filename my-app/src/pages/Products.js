@@ -2,18 +2,19 @@ import React, { useContext } from "react";
 
 import ProductContext from "../contexts/product-context";
 import ProductContainer from "../components/ProductComponents/ProductContainer/ProductContainer";
+import Toast from "../components/UI/Toast/Toast";
 
 const ProductPage = () => {
-  const { filteredData, data } = useContext(ProductContext);
+  const { data } = useContext(ProductContext);
 
-  if (!filteredData) {
+  if (!data) {
     return <div>Loading..</div>;
   }
 
   return (
     <>
       <div className="container-140">
-        <ProductContainer data={filteredData} />
+        <ProductContainer data={data} />
       </div>
     </>
   );

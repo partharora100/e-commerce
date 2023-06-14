@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import AuthContext from "./auth-context";
+import { toast } from "react-toastify";
 
 const WishlistContext = createContext({
   data: [],
@@ -39,6 +40,7 @@ export const WishlistContextProvider = ({ children }) => {
 
     const resData = await response.json();
     setWishlistData(resData.wishlist);
+    toast.success("ADDED TO WISHLIST");
   };
 
   const deleteWishlistHandler = async (productID) => {
@@ -51,14 +53,14 @@ export const WishlistContextProvider = ({ children }) => {
 
     const resData = await response.json();
     setWishlistData(resData.wishlist);
+    toast.error("REMOVED FROM WISHLIST");
   };
 
   const checkItemInWish = (data) => {
     if (!isLogin) {
       return false;
     }
-    // improve this behaviour here
-    // console.log(wishlistData);
+
     const product = wishlistData?.find((p) => p._id === data._id);
 
     if (product?._id ? true : false) {
