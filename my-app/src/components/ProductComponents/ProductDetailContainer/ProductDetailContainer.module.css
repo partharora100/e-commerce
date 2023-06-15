@@ -1,0 +1,99 @@
+.container {
+  /* border: 1px solid black; */
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: 1.4fr 3fr;
+  column-gap: 3.2rem;
+}
+
+.left {
+  padding: 1.2rem;
+}
+
+.left img {
+  width: 100%;
+}
+
+.right {
+  padding: 1.2rem;
+}
+.head {
+  display: flex;
+  justify-content: space-between;
+}
+
+.head button {
+  font-size: 1.6rem;
+  padding: 0.6rem 2rem;
+}
+
+.right h1 {
+  font-size: 2rem;
+  font-weight: 500;
+  margin-bottom: 0.4rem;
+}
+
+.price {
+  font-size: 2.4rem;
+  font-weight: 500;
+  color: #2b8a3e;
+}
+
+.tags {
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: var(--bestseller-red);
+  margin-bottom: 0.8rem;
+}
+
+.qty {
+  font-size: 1.6rem;
+  margin-bottom: 0.6rem;
+}
+
+.flexBox {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 1.6rem;
+}
+
+.rating {
+  font-size: 1.6rem;
+}
+
+.reviews {
+  font-size: 1.6rem;
+}
+
+.actions {
+  margin-top: 2rem;
+}
+
+.primaryBtn {
+  font-size: 1.6rem;
+  padding: 1.2rem 4.8rem;
+  background-color: var(--primary-blue);
+  border: 1px solid var(--primary-blue);
+  color: white;
+  border: none;
+  border-radius: 4px;
+}
+
+.primaryBtn:hover {
+  background-color: var(--dark-blue);
+}
+
+.secondaryBtn {
+  font-size: 1.6rem;
+  padding: 1.2rem 4.8rem;
+  color: var(--primary-blue);
+  border-radius: 4px;
+  border: 2px solid var(--primary-blue);
+  background-color: white;
+}
+
+.secondaryBtn:hover {
+  background-color: var(--light-blue);
+}

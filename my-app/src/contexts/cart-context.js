@@ -54,7 +54,6 @@ export const CartContextProvider = ({ children }) => {
   };
 
   const updateCartHandler = async (type, productID) => {
-    console.log("This is hittinh");
     const response = await fetch("/api/user/cart/" + productID, {
       method: "POST",
       headers: {
@@ -92,10 +91,7 @@ export const CartContextProvider = ({ children }) => {
       return false;
     }
 
-    // console.log(data);
-    const product = cartData.find((p) => p._id === data._id);
-    // console.log("Checkking whether in Cart");
-    // console.log(product);
+    const product = cartData?.find((p) => p._id === data._id);
 
     if (product?._id ? true : false) {
       return product._id;

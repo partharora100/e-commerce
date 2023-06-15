@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router";
 import modules from "./Form.module.css";
-import { useContext, useReducer, useState } from "react";
+import { useContext, useReducer } from "react";
 import AuthContext from "../../contexts/auth-context";
 
 const emailReducer = (state, { type, payload }) => {
@@ -22,16 +22,22 @@ const passwordReducer = (state, { type, payload }) => {
       initValid: payload.trim().length > 8,
       confirmValue: state.confirmValue,
       confirmValid: state.confirmValid,
-      inputValid: state.confirmValid && payload.trim().length > 8,
+      inputValid:
+        state.confirmValid &&
+        payload.trim().length > 8 &&
+        state.confirmValue === payload,
     };
   }
 
   if (type === "PASSWORD_INIT_BLUR") {
     return {
       ...state,
-      initValue: state.value,
-      initValid: state.value.trim().length > 8,
-      inputValid: state.confirmValid && state.value.trim().length > 8,
+      initValue: state.initValue,
+      initValid: state.initValue.trim().length > 8,
+      inputValid:
+        state.confirmValid &&
+        state.initValue.trim().length > 8 &&
+        state.confirmValue === state.initValue,
     };
   }
 
@@ -40,7 +46,10 @@ const passwordReducer = (state, { type, payload }) => {
       ...state,
       confirmValue: payload,
       confirmValid: payload.trim().length > 8,
-      inputValid: payload.trim().length > 8 && state.initValid,
+      inputValid:
+        payload.trim().length > 8 &&
+        state.initValid &&
+        payload === state.initValue,
     };
   }
 
@@ -49,16 +58,33 @@ const passwordReducer = (state, { type, payload }) => {
       ...state,
       confirmValue: state.confirmValue,
       confirmValid: state.confirmValue.trim().length > 8,
-      inputValid: state.confirmValid && state.initValid,
+      inputValid:
+        state.confirmValid &&
+        state.initValid &&
+        state.confirmValue === state.initValue,
     };
   }
 
   return { value: "", valid: false };
 };
 
-const confirmPasswordReducer = (state, { type, payload }) => {};
+const fullNameReducer = (state, { type, payload }) => {
+  if (type === "NAME_CHANGE") {
+    return {
+      value: payload,
+      valid: payload.includes(" "),
+    };
+  }
 
-const fullNameReducer = (state, { type, payload }) => {};
+  if (type === "NAME_BLUR") {
+    return {
+      value: state.value,
+      valid: state.value.includes(" "),
+    };
+  }
+
+  return { value: "", valid: false };
+};
 
 const initState = {
   value: "",
@@ -66,11 +92,10 @@ const initState = {
 };
 
 const SignupForm = ({ onLogin }) => {
-  const { signupHandler: onSignup } = useContext(AuthContext);
   const navigate = useNavigate();
+  const { signupHandler: onSignup } = useContext(AuthContext);
 
   const [emailState, dispatchEmail] = useReducer(emailReducer, initState);
-
   const [passwordState, dispatchPassword] = useReducer(passwordReducer, {
     initValue: "",
     initValid: null,
@@ -78,21 +103,31 @@ const SignupForm = ({ onLogin }) => {
     confirmValid: null,
     inputValid: null,
   });
-
   const [nameState, dispatchName] = useReducer(fullNameReducer, initState);
 
   const signupHandler = (e) => {
     e.preventDefault();
-    // this will only be trigerred if and only the password input is valid
+
     const authData = {
-      email: emailState.initValue,
-      password: passwordState.confirmValue,
-      firstName: "firstName",
+      email: emailState.value,
+      password: passwordState.initValue,
+      firstName: nameState.value,
     };
+
     onSignup(authData);
+    // only if the signup is succesfull
+    navigate("/");
   };
 
   /** NAME HANDLERS */
+
+  const firstNameChangeHandler = (e) => {
+    dispatchName({ type: "NAME_CHANGE", payload: e.target.value });
+  };
+
+  const firstNameValidHandler = () => {
+    dispatchName({ type: "NAME_BLUR" });
+  };
 
   /** EMAIL HANDLERS */
   const emailChangeHandler = (e) => {
@@ -125,14 +160,17 @@ const SignupForm = ({ onLogin }) => {
     });
   };
 
-  const formValid = false;
+  let formValid =
+    emailState?.valid && passwordState?.inputValid && nameState?.valid;
 
   return (
     <div className={modules.formContainer}>
-      <form method="post" className={modules.form}>
+      <form method="post" className={modules.form} onSubmit={signupHandler}>
         <div className={modules.input}>
           <label htmlFor="email">Full Name</label>
           <input
+            onChange={firstNameChangeHandler}
+            onBlur={firstNameValidHandler}
             id="name"
             placeholder="Enter Your Full Name"
             type="name"
@@ -143,6 +181,8 @@ const SignupForm = ({ onLogin }) => {
         <div className={modules.input}>
           <label htmlFor="email">Email Address</label>
           <input
+            onChange={emailChangeHandler}
+            onBlur={emailValidHandler}
             id="email"
             placeholder="you@example.com"
             type="email"
@@ -153,6 +193,8 @@ const SignupForm = ({ onLogin }) => {
         <div className={modules.input}>
           <label htmlFor="password">Password</label>
           <input
+            onChange={passwordChangeHandler}
+            onBlur={passwordValidHandler}
             id="password"
             placeholder="At least 8 character"
             type="password"
@@ -163,6 +205,8 @@ const SignupForm = ({ onLogin }) => {
         <div className={modules.input}>
           <label htmlFor="password">Confirm Password</label>
           <input
+            onChange={confirmPasswordChangeHandler}
+            onBlur={confirmPasswordValidHandler}
             id="password"
             placeholder="At least 8 character"
             type="password"
@@ -171,18 +215,12 @@ const SignupForm = ({ onLogin }) => {
         </div>
 
         <div>
-          <button
-            onClick={"signupHandler"}
-            className={modules.login}
-            disabled={formValid}
-          >
+          <button className={modules.login} disabled={!formValid}>
             Signup
           </button>
         </div>
       </form>
-      <button onClick={onLogin} className={modules.guest}>
-        Signup as Guest
-      </button>
+      <button className={modules.guest}>Signup as Guest</button>
     </div>
   );
 };

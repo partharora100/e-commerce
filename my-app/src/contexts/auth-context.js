@@ -33,18 +33,33 @@ export const AuthContextProvider = ({ children }) => {
       });
   };
 
-  // singup handler
-  const signupHandler = () => {};
+  const signupHandler = (authData) => {
+    fetch("/api/auth/signup", {
+      method: "POST",
+      body: JSON.stringify({ ...authData }),
+    })
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data);
+        const { foundUser, encodedToken } = data;
 
-  // logoutHandler
+        localStorage.setItem("token", encodedToken);
+        setCurrentUser(foundUser);
+        setToken(encodedToken);
+        setIsLogin(true);
+        console.log("SIGNUP IS DONE");
+        toast.success("SIGNUP DONE");
+      });
+  };
+
   const logoutHandler = () => {
     setToken(null);
     setCurrentUser(null);
     setIsLogin(false);
     localStorage.removeItem("token");
     toast.error("LOGOUT");
-    // notification
-    // navigate
   };
 
   return (

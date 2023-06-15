@@ -5,10 +5,10 @@ import CartContext from "../../../contexts/cart-context";
 
 const CartContainer = () => {
   const cartCtx = useContext(CartContext);
-  const data = cartCtx.data;
+  const data = cartCtx?.data;
   console.log(data);
 
-  let cartEmpty = data.length === 0 ? true : false;
+  let cartEmpty = data?.length === 0 ? true : false;
 
   return (
     <div className="container-100">
@@ -16,7 +16,7 @@ const CartContainer = () => {
         <div className={modules.left}>
           {cartEmpty && <h1>The cart is empty</h1>}
           {!cartEmpty &&
-            data.map((cartItem) => {
+            data?.map((cartItem) => {
               console.log(cartItem);
               return <CartCard cartItem={cartItem} />;
             })}
@@ -25,7 +25,7 @@ const CartContainer = () => {
           <h3>Cart Summary</h3>
 
           <div className={modules.cartDeatils}>
-            {data.map((cartItem) => {
+            {data?.map((cartItem) => {
               return (
                 <div className={modules.cartDetailCard}>
                   <div>

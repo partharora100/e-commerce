@@ -18,7 +18,7 @@ const UserCard = () => {
       <div className={modules.container80}>
         <div className={modules.card}>
           <div className={modules.cardHead}>
-            <h2>Welcome Back {currentUser.firstName}</h2>
+            <h2>Welcome Back {currentUser?.firstName}</h2>
             <button onClick={logoutHandler}>Logout</button>
           </div>
           <div className={modules.userDetails}>

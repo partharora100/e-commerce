@@ -14,6 +14,7 @@ import { grey, red } from "@mui/material/colors";
 
 const ProductCard = ({ product }) => {
   const {
+    id,
     _id,
     title,
     bestseller,
@@ -68,7 +69,7 @@ const ProductCard = ({ product }) => {
         <p className={modules.price}>{price}</p>
 
         <div className={modules.actions}>
-          <Link to={`/product/${_id}`}>
+          <Link to={`/product/${id}`}>
             <button className={modules.secondaryButton}>View Product</button>
           </Link>
 
